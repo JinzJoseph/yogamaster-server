@@ -13,7 +13,7 @@ const stripe = new Stripe(process.env.STRIPE_API_KEY, {
   apiVersion: "2022-11-15", // Use the appropriate API version
 });
 const app = express();
-
+const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
@@ -714,7 +714,8 @@ async function run() {
 }
 
 run().catch(console.dir);
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });
+
+
